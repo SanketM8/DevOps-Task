@@ -1,0 +1,20 @@
+FROM nginx
+
+# PHP and the required MSSQL driver
+RUN apt-get update && apt-get install -y \
+    freetds-dev \
+    freetds-bin \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libmcrypt-dev \
+    libpng-dev
+
+# Copy the QuickDbTest.php script to the web root folder
+COPY QuickDbTest.php /var/www/html/
+
+# Expose the port for the web server
+EXPOSE 80
+
+# Start the web server
+
+CMD ["php", "QuickDbTest.php"]

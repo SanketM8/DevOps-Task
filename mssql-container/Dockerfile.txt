@@ -1,0 +1,11 @@
+FROM mcr.microsoft.com/mssql/server
+
+# Set variables for MSSQL Server
+ENV ACCEPT_EULA=Y
+ENV SA_PASSWORD=Un!q@to2023
+
+# Expose the port for MSSQL Server
+EXPOSE 1433
+
+# Start the MSSQL service
+CMD ["/opt/mssql/bin/sqlservr"]
